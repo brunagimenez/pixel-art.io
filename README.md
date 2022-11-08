@@ -1,2 +1,2 @@
-# pixel-art.io
+# pixel-art
 Projeto - Pixel Art
