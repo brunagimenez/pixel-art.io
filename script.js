@@ -136,3 +136,27 @@ vqv.addEventListener("click", () => {
         pixel[i].style.height = valueInput + 'px';
     }
 });
+
+//
+
+const generateWidth = document.getElementById('generate-width');
+
+generateWidth.addEventListener("click", () => {
+    const pixelBoard = document.getElementById('pixel-board');
+    const pixelsLength = document.getElementById('pixels-length');
+    
+    let valueWidth = generateWidth.value
+    let valueLength = pixelsLength.value
+    
+    
+    for (let i = 0; i < valueWidth; i += 1){
+        const sectionPixel = document.createElement('section');
+        sectionPixel.classList.add("section-pixel")
+        pixelBoard.appendChild(sectionPixel);
+        for (let i = 0; i < valueLength ; i += 1) {
+            const divPixel = document.createElement('div');
+            divPixel.classList.add("pixel");
+            sectionPixel.appendChild(divPixel);
+        }
+    }
+});

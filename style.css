@@ -28,7 +28,7 @@
     text-align: center;
 }
 
-#size-pixel {
+#size-pixel, #botton-size {
     text-align: center;
-    padding: 10px;
+    padding: 5px;
 }
