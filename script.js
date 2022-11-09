@@ -78,6 +78,32 @@ createPixels();
 
 
 
+//Mudar qtd de pixels
+
+const generateWidth = document.getElementById('generate-width');
+
+generateWidth.addEventListener("click", () => {
+    const pixelBoard = document.getElementById('pixel-board');
+    const pixelsLength = document.getElementById('pixels-length');
+    while (pixelBoard.firstChild) {
+        pixelBoard.removeChild(pixelBoard.firstChild);
+    }
+    
+    for (let i = 0; i < pixelsLength.value ; i += 1){
+        console.log(i);
+        const sectionPixel = document.createElement('section');
+        sectionPixel.classList.add("section-pixel")
+        pixelBoard.appendChild(sectionPixel);
+        for (let i = 0; i < pixelsLength.value ; i += 1) {
+            const divPixel = document.createElement('div');
+            divPixel.classList.add("pixel");
+            sectionPixel.appendChild(divPixel);
+        }
+    }
+});
+
+
+
 // Add class Selected
 
 const classSelected = () => {
@@ -104,6 +130,7 @@ const fillColor = (event) => {
 }
 
 const pixel = document.querySelectorAll('.pixel');
+console.log(pixel);
 for (let i=0;i < pixel.length;i+=1){
     pixel[i].addEventListener('click',fillColor);
 };
@@ -139,24 +166,3 @@ vqv.addEventListener("click", () => {
 
 //
 
-const generateWidth = document.getElementById('generate-width');
-
-generateWidth.addEventListener("click", () => {
-    const pixelBoard = document.getElementById('pixel-board');
-    const pixelsLength = document.getElementById('pixels-length');
-    
-    let valueWidth = generateWidth.value
-    let valueLength = pixelsLength.value
-    
-    
-    for (let i = 0; i < valueWidth; i += 1){
-        const sectionPixel = document.createElement('section');
-        sectionPixel.classList.add("section-pixel")
-        pixelBoard.appendChild(sectionPixel);
-        for (let i = 0; i < valueLength ; i += 1) {
-            const divPixel = document.createElement('div');
-            divPixel.classList.add("pixel");
-            sectionPixel.appendChild(divPixel);
-        }
-    }
-});
