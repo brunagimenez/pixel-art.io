@@ -32,41 +32,38 @@ colorBlack.style.backgroundColor='black';
 
 const buttonColor = document.getElementById('button-random-color');
 const colorRBG = (event) => {
-    // let rgb = []
-    // localStorage.setItem('colorPalette',JSON.stringify(rgb));
-    // console.log(rgb);
+    let rgb = []
+    for (let i = 0; i <color.length; i+=1){
+        rgb.push(color[i].style.backgroundColor);
+    }
     for (let i = 0; i <color.length; i+=1){
         if (color[i].style.backgroundColor !== 'black'){
             color[i].style.backgroundColor =randomColor();
-            // rgb.push(color[i]);
         };
     };
+    localStorage.setItem('colorPalette',JSON.stringify(rgb));
 };
 buttonColor.addEventListener('click',colorRBG);
 
-
-// window.onload = function () {
-//      if (localStorage.length > 0){
-//         for (let i in localStorage){
-//             let key = localStorage.key(i);
-//             let objeto = JSON.parse(localStorage.getItem(key));
-//             criaElemento(objeto);
-//         };
-//     };
-// };
+window.onload = function () {
+     if (localStorage.length > 0){
+        for (let i in localStorage){
+            let key = localStorage.key(i);
+            let recuperar = JSON.parse(localStorage.getItem(key));
+        };
+    };
+};
 
 //criando 25 pixels
 
 
-// Criando os pixels
-
 const createPixels = () => {
     const pixelBoard = document.getElementById('pixel-board');
-    for (let i = 0; i < 5; i += 1){
+    for (let i = 0; i < 20; i += 1){
         const sectionPixel = document.createElement('section');
         sectionPixel.classList.add("section-pixel")
         pixelBoard.appendChild(sectionPixel);
-        for (let i = 0; i <5; i += 1) {
+        for (let i = 0; i <20; i += 1) {
             const divPixel = document.createElement('div');
             divPixel.classList.add("pixel");
             sectionPixel.appendChild(divPixel);
@@ -75,32 +72,6 @@ const createPixels = () => {
 }
 
 createPixels();
-
-
-
-//Mudar qtd de pixels
-
-const generateWidth = document.getElementById('generate-width');
-
-generateWidth.addEventListener("click", () => {
-    const pixelBoard = document.getElementById('pixel-board');
-    const pixelsLength = document.getElementById('pixels-length');
-    while (pixelBoard.firstChild) {
-        pixelBoard.removeChild(pixelBoard.firstChild);
-    }
-    
-    for (let i = 0; i < pixelsLength.value ; i += 1){
-        console.log(i);
-        const sectionPixel = document.createElement('section');
-        sectionPixel.classList.add("section-pixel")
-        pixelBoard.appendChild(sectionPixel);
-        for (let i = 0; i < pixelsLength.value ; i += 1) {
-            const divPixel = document.createElement('div');
-            divPixel.classList.add("pixel");
-            sectionPixel.appendChild(divPixel);
-        }
-    }
-});
 
 
 
@@ -130,7 +101,6 @@ const fillColor = (event) => {
 }
 
 const pixel = document.querySelectorAll('.pixel');
-console.log(pixel);
 for (let i=0;i < pixel.length;i+=1){
     pixel[i].addEventListener('click',fillColor);
 };
@@ -148,21 +118,43 @@ buttonClear.addEventListener('click',() => {
 
 const vqv = document.getElementById('generate-board');
 
-// add botão para mudar tamanho
+
+
+// add tamanho dos pixels
 for (let i=0;i < pixel.length;i+=1){
-    pixel[i].style.width = '40px';
-    pixel[i].style.height = '40px';
+    pixel[i].style.width = '15px';
+    pixel[i].style.height = '15px';
 }
 
-vqv.addEventListener("click", () => {
-    const pixelBoard = document.getElementById('pixel-board');
-    const bottonInput = document.getElementById('board-size');
-    let valueInput = bottonInput .value
-    for ( let i in pixel){
-        pixel[i].style.width = valueInput + 'px';
-        pixel[i].style.height = valueInput + 'px';
-    }
-});
 
-//
+
+//Mudar qtd de pixels
+
+
+
+const generateWidth = document.getElementById('generate-width');
+
+generateWidth.addEventListener("click", () => {
+    const pixelBoard = document.getElementById('pixel-board');
+    const pixelsLength = document.getElementById('pixels-length');
+    while (pixelBoard.firstChild) {
+        pixelBoard.removeChild(pixelBoard.firstChild);
+    }
+    
+    for (let i = 0; i < pixelsLength.value ; i += 1){
+        const sectionPixel = document.createElement('section');
+        sectionPixel.classList.add("section-pixel")
+        pixelBoard.appendChild(sectionPixel);
+        for (let i = 0; i < pixelsLength.value ; i += 1) {
+            const divPixel = document.createElement('div');
+            divPixel.classList.add("pixel");
+            sectionPixel.appendChild(divPixel);
+        }
+    }
+    
+    const pixel = document.querySelectorAll('.pixel');
+    for (let i=0;i < pixel.length;i+=1){
+        pixel[i].addEventListener('click',fillColor);
+    };
+});
 

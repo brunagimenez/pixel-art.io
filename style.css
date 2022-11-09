@@ -8,8 +8,8 @@
 }
 
 .pixel{
-    width: 40px;
-    height: 40px;
+    width: 15px;
+    height: 15px;
     margin: -1px;
     display: inline-block;
     border: 1px solid black;
@@ -28,7 +28,3 @@
     text-align: center;
 }
 
-#size-pixel {
-    text-align: center;
-    padding: 5px;
-}
