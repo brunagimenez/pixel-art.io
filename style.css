@@ -4,7 +4,7 @@ body{
 }
 
 main{
-    background-color: #9dbae66e;
+    /* background-color: #9dbae66e; */
     padding: 2%;
     margin: 0% 30% 0% 30%;
     border-radius: 20px;
@@ -53,7 +53,54 @@ h1{
     text-shadow: 0.1em 0.1em 0.2em #8a8a8a;
 }
 
+button{
+    align-items: center;
+    appearance: none;
+    background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgb(45 35 66 / 40%) 0 2px 4px, rgb(45 35 66 / 30%) 0 7px 13px -3px, rgb(58 65 111 / 50%) 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 28px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 8px;
+    padding-right: 8px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 12px;
+    margin: 5px;
+}
 
+footer{
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+    color: rgb(123, 123, 123);
+}
+
+#input{
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    width: 20%;
+    margin: 7px;
+}
 
 #color-palette{
     display: flex;
