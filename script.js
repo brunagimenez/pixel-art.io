@@ -32,27 +32,35 @@ colorBlack.style.backgroundColor='black';
 
 const buttonColor = document.getElementById('button-random-color');
 const colorRBG = (event) => {
-    let rgb = []
-    for (let i = 0; i <color.length; i+=1){
-        rgb.push(color[i].style.backgroundColor);
-    }
     for (let i = 0; i <color.length; i+=1){
         if (color[i].style.backgroundColor !== 'black'){
             color[i].style.backgroundColor =randomColor();
         };
     };
+    let rgb = []
+    for (let i = 0; i <color.length; i+=1){
+        rgb.push(color[i].style.backgroundColor);
+    }
     localStorage.setItem('colorPalette',JSON.stringify(rgb));
 };
 buttonColor.addEventListener('click',colorRBG);
 
 window.onload = function () {
-     if (localStorage.length > 0){
-        for (let i in localStorage){
-            let key = localStorage.key(i);
-            let recuperar = JSON.parse(localStorage.getItem(key));
+    const rgbRetorn = JSON.parse(localStorage.getItem('colorPalette'));
+    const color = document.getElementsByClassName('color');
+    
+    for (let i = 0 ; i < rgbRetorn.length; i += 1){
+        if (rgbRetorn[i]===rgbRetorn[1]){
+            color[1].style.backgroundColor=rgbRetorn[i];
+        } else if (rgbRetorn[i]===rgbRetorn[2]){
+            color[2].style.backgroundColor=rgbRetorn[i];
+        } else if (rgbRetorn[i]===rgbRetorn[3]){
+            color[3].style.backgroundColor=rgbRetorn[i];
         };
-    };
+        
+    }   
 };
+
 
 //criando 25 pixels
 
@@ -90,6 +98,7 @@ const changeColor = (event) =>{
 for (let i = 0 ; i <color.length ; i +=1){
     color[i].addEventListener('click',changeColor);
 }
+
 
 
 //Preenchendo cor da class selected p/ pixels
