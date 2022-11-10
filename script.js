@@ -98,6 +98,9 @@ const changeColor = (event) =>{
 for (let i = 0 ; i <color.length ; i +=1){
     color[i].addEventListener('click',changeColor);
 }
+const selectColor = document.getElementById('colorSelect');
+selectColor.addEventListener('click',changeColor);
+
 
 
 
@@ -106,7 +109,7 @@ for (let i = 0 ; i <color.length ; i +=1){
 const fillColor = (event) => {
     const classSelected = document.querySelector('.selected');
     event.target.style.backgroundColor = classSelected.style.backgroundColor
-
+    event.target.style.backgroundColor = classSelected.value
 }
 
 const pixel = document.querySelectorAll('.pixel');
@@ -150,20 +153,23 @@ generateWidth.addEventListener("click", () => {
         pixelBoard.removeChild(pixelBoard.firstChild);
     }
     
+
     for (let i = 0; i < pixelsLength.value ; i += 1){
         const sectionPixel = document.createElement('section');
         sectionPixel.classList.add("section-pixel")
         pixelBoard.appendChild(sectionPixel);
         for (let i = 0; i < pixelsLength.value ; i += 1) {
             const divPixel = document.createElement('div');
+            sectionPixel.classList.add("section-pixel")
             divPixel.classList.add("pixel");
             sectionPixel.appendChild(divPixel);
         }
     }
-    
+
     const pixel = document.querySelectorAll('.pixel');
     for (let i=0;i < pixel.length;i+=1){
         pixel[i].addEventListener('click',fillColor);
     };
 });
+
 
