@@ -4,8 +4,7 @@ Esse projeto foi desenvolvido para testar e melhorar o aprendizado da sessão 5 
 
 Aqui você vai encontrar os detalhes de como estruturei o desenvolvimento do projeto a partir dos requisitos solicitados.
 
-# Requisitos Obrigatórios
-:warning: **Leia todos os requisitos atentamente e siga à risca o que for pedido. Em particular, **atente-se para os nomes de _ids_  e _classes_ que alguns elementos de seu projeto devem possuir**. Não troque `ids` por `classes` ou vice-versa** :warning:
+**Alguns requisitos solicitados foram modificados para ficar de acordo com meu gosto e melhorar o design thinking do layont.
 
 ## 1 - Adicione à página o título "Paleta de Cores".
 
